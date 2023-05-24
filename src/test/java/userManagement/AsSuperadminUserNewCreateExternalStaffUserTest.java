@@ -34,6 +34,7 @@ public class AsSuperadminUserNewCreateExternalStaffUserTest extends TestBase {
 		CreateNewExternalStaffUsersPageObj.UserCanCreateExternalStaff(Firstname, Fathername, GrandFatherName,
 				FamilyName, FamilyName, NationalID, Phone, EmailAddress);
 		Assert.assertTrue(CreateNewExternalStaffUsersPageObj.Validation.getText().contains("account created and activated successfully"));
+		driver.close();
 	}
 	
 	

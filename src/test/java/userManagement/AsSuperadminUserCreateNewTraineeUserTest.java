@@ -30,6 +30,7 @@ public class AsSuperadminUserCreateNewTraineeUserTest extends TestBase {
 		LoginPageObj.UserCanLogin(Email, Password);
 		CreateNewTraineeUsersPageObj = new CreateNewTraineeUsersPage(driver);
 		CreateNewTraineeUsersPageObj.UserCanCreateTraineeStaff(Firstname, Fathername, GrandFatherName, FamilyName, Phone, EmailAddress);
+		driver.close();
 	}
 
 

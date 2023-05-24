@@ -1,5 +1,6 @@
 package userManagement;
 
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
 import com.github.javafaker.Faker;
@@ -23,14 +24,15 @@ public class AsSuperadminUserNewCreateCabUserTest extends TestBase {
 	String CabNameInEnglish = fakeData.name().firstName();
 	String CabNameInArabic = " يوزر ";
 	String EmailAddress= fakeData.internet().emailAddress();
-
+	
+	
 	@Test
 	public void CreateCabusersSuccessfully() throws InterruptedException {
 		LoginPageObj = new LoginPage(driver);
 		LoginPageObj.UserCanLogin(Email, Password);
 		CreateNewCabUserPageObj = new CreateNewCabUserPage(driver);
 		CreateNewCabUserPageObj.UserCanCreateCabUser(Firstname, Fathername, GrandFatherName, FamilyName, Phone, CabNameInEnglish, CabNameInArabic, EmailAddress);
-		
+		driver.close();
 	}
 
 }

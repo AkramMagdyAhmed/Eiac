@@ -32,6 +32,7 @@ public class sortByOnEiacStaffPageTest extends TestBase {
 		sortByOnEiacStaffPageTestObj = new sortByOnEiacStaffPage(driver);
 		sortByOnEiacStaffPageTestObj.SortByMemberSince();
 		Thread.sleep(3000);
+		driver.close();
 	}
 
 }

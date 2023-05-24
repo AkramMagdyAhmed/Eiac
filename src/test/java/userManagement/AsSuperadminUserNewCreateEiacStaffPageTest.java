@@ -1,5 +1,6 @@
 package userManagement;
 
+
 import org.testng.annotations.Test;
 
 import com.github.javafaker.Faker;
@@ -33,6 +34,7 @@ public class AsSuperadminUserNewCreateEiacStaffPageTest extends TestBase {
 		CreateNewEiacStaffPageObj.ExecutiveDirectorUserCanCreateEiacStaff(Firstname, Fathername, GrandFatherName, FamilyName, Email, Phone, EmailAddress);
 //		Assert.assertTrue(AsExecutiveDirectorUserNewCreateEiacStaffPageObj.Validation.getText()
 //				.contains("Account created"));
+		driver.close();
 	}
 
 }

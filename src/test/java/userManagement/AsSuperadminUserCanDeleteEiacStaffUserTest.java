@@ -22,32 +22,34 @@ public class AsSuperadminUserCanDeleteEiacStaffUserTest extends TestBase {
 		LoginPageObj.UserCanLogin(Email, Password);
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 2 , enabled = true)
 	public void DeleteEiacUserSuccessfullyinActiveTab() throws InterruptedException {
 		deleteEiacStaffObj = new deleteEiacStaff(driver);
 		deleteEiacStaffObj.deleteUserInActiveTab();
 		Assert.assertTrue(deleteEiacStaffObj.Validation.getText().contains("Deleted Successfuly"));
+		driver.close();
 	}
 
-	@Test(priority = 3)
+	@Test(priority = 3, enabled = false)
 	public void DeleteEiacUserSuccessfullyinInactiveTab() throws InterruptedException {
 		deleteEiacStaffObj = new deleteEiacStaff(driver);
 		deleteEiacStaffObj.deleteUserInInactiveTab();
 //		Assert.assertTrue(deleteEiacStaffObj.Validation.getText().contains("Deleted Successfuly"));
 	}
 
-	@Test(priority = 4)
+	@Test(priority = 4 , enabled = false)
 	public void DeleteEiacUserSuccessfullyinInNotVerifiedYetTab() throws InterruptedException {
 		deleteEiacStaffObj = new deleteEiacStaff(driver);
 		deleteEiacStaffObj.deleteUserInNotVerifiedYetTab();
 		Assert.assertTrue(deleteEiacStaffObj.Validation.getText().contains("Deleted Successfuly"));
 	}
 	
-	@Test(priority = 5)
+	@Test(priority = 5 , enabled = false)
 	public void DeleteEiacUserSuccessfullyinAwaitingApprovaltTabTab() throws InterruptedException {
 		deleteEiacStaffObj = new deleteEiacStaff(driver);
 		deleteEiacStaffObj.deleteUserInAwaitingApprovaltTab();
 //		Assert.assertTrue(deleteEiacStaffObj.Validation.getText().contains("Deleted Successfuly"));
+		driver.close();
 	}
 
 

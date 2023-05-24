@@ -6,10 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterGroups;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
@@ -21,7 +20,8 @@ public class TestBase {
 
 	
 	public static WebDriver driver;
-	@BeforeSuite
+	
+	@BeforeClass
 	@Parameters ({"browser"})
 	public void startDriver (@Optional("chrome") String browserName)
 	{
@@ -42,11 +42,11 @@ public class TestBase {
 		
 	}
 	
-	@AfterSuite
-	public void stopDriver()
-	{
-		driver.close();
-	}
+//	@AfterSuite
+//	public void stopDriver()
+//	{
+//		driver.close();
+//	}
 	
 	@AfterMethod
 	public void screenshotOnFailure(ITestResult result) 

@@ -27,6 +27,7 @@ public class AsSuperadminUserCanActivateEiacStaffUserTest extends TestBase {
 		EiacStaffPageObj = new EiacStaffPage(driver);
 		EiacStaffPageObj.ActivateUser();
 		Thread.sleep(3000);
+		driver.close();
 	}
 
 }
