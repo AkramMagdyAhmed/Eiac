@@ -42,11 +42,11 @@ public class TestBase {
 		
 	}
 	
-//	@AfterSuite
-//	public void stopDriver()
-//	{
-//		driver.close();
-//	}
+	@AfterSuite
+	public void stopDriver()
+	{
+		driver.close();
+	}
 	
 	@AfterMethod
 	public void screenshotOnFailure(ITestResult result) 
