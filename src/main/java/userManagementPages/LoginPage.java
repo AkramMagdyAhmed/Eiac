@@ -10,10 +10,10 @@ public class LoginPage extends PageBase {
 		super(driver);
 	}
 
-	@FindBy(id = "mat-input-0")
+	@FindBy(css = "input[formcontrolname='email']")
 	WebElement EmailField;
 
-	@FindBy(id = "mat-input-1")
+	@FindBy(css = "input[formcontrolname='password']")
 	WebElement PasswordField;
 
 	@FindBy(css = "button[class='mat-focus-indicator password-visibility mat-icon-button mat-button-base ng-tns-c91-1']")
@@ -40,4 +40,30 @@ public class LoginPage extends PageBase {
 		clickButton(CreateAccountLink);
 
 	}
+	
+	public void AMUserCanLogin(String AMEmail, String AMPassword) {
+		setTextElementText(EmailField, AMEmail);
+		setTextElementText(PasswordField, AMPassword);
+		//clickButton(ShowPasswordIcon);
+		clickButton(LoginBtn);
+	}
+	
+	public void ADUserCanLogin(String ADEmail, String ADPassword) {
+		setTextElementText(EmailField, ADEmail);
+		setTextElementText(PasswordField, ADPassword);
+		//clickButton(ShowPasswordIcon);
+		clickButton(LoginBtn);
+	}
+	
+	
+	public void EDUserCanLogin(String EDEmail, String EDPassword) {
+		setTextElementText(EmailField, EDEmail);
+		setTextElementText(PasswordField, EDPassword);
+		//clickButton(ShowPasswordIcon);
+		clickButton(LoginBtn);
+	}
+	
+	
+	
+	
 }

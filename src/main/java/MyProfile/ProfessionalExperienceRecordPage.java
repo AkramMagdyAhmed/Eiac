@@ -35,11 +35,9 @@ public class ProfessionalExperienceRecordPage  extends PageBase{
 	@FindBy(css = "textarea[formcontrolname='dutiesAndResponsibilities']")
 	WebElement DutiesAndResponsibilitiesField;
 	
-	//@FindBy(className = "mat-select-value ng-tns-c225-38")
 	@FindBy(css = "mat-select[formcontrolname='fromMonth']")
 	WebElement SelectMonth;
 	
-	//@FindBy(className = "mat-form-field-infix ng-tns-c91-39")
 	@FindBy(css = "mat-select[formcontrolname='fromYear']")
 	WebElement SelectYear;
 	
@@ -49,7 +47,7 @@ public class ProfessionalExperienceRecordPage  extends PageBase{
 	@FindBy(id = "toast-container")
 	public WebElement Validation;
 	
-	public void AddPresentPosition(String JobTitle , String Company , String DutiesAndResponsibilities) throws InterruptedException
+	public void AddProfessionalExperienceRecord(String JobTitle , String Company , String DutiesAndResponsibilities) throws InterruptedException
 	{
 		clickButton(UserAccountDropdown);
 		clickButton(MyProfileLink);
@@ -58,10 +56,12 @@ public class ProfessionalExperienceRecordPage  extends PageBase{
 		setTextElementText(jobTitleField, JobTitle);
 		setTextElementText(companyField, Company);
 		setTextElementText(DutiesAndResponsibilitiesField, DutiesAndResponsibilities);
+		Thread.sleep(1000);
 		setTextElementText(SelectMonth, "February");
 		setTextElementText(SelectYear, "2022");
-		clickButton(SaveAndCloseBtn);
 		Thread.sleep(2000);
+		clickButton(SaveAndCloseBtn);
+		Thread.sleep(3000);
 	}
 	
 	

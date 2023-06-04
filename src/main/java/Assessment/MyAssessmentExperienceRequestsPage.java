@@ -18,6 +18,11 @@ public class MyAssessmentExperienceRequestsPage extends PageBase {
 
 	@FindBy(css = "button[class='mat-focus-indicator btn customBtn mat-raised-button mat-button-base mat-primary']")
 	public WebElement AddNewAssessmentExperienceBtn;
+	
+	//@FindBy(linkText = "Add New Assessment Experience")
+	@FindBy(xpath = "/html[1]/body[1]/app-root[1]/app-admin-layout[1]/div[1]/div[1]/div[1]/div[1]/div[1]/app-assessments-experience-requests[1]/div[1]/button[1]")
+	public WebElement AddNewAssessmentExperienceBtnInMiddleScreen;
+	
 
 	@FindBy(xpath = "//*[@id=\"content\"]/app-assessments-experience-requests/div/p")
 	public WebElement CompleteYourProfileText;
@@ -28,11 +33,21 @@ public class MyAssessmentExperienceRequestsPage extends PageBase {
 	@FindBy(css = "mat-slide-toggle[mattooltip='This Check if you want to Apply as TeamLeader or Accreditation Committee and this will apply all Schema']")
 	WebElement ForAllSchemaToggleBtn;
 
-	@FindBy(css = "mat-select[class='mat-select ng-tns-c225-10 ng-tns-c91-9 ng-star-inserted mat-select-required ng-touched ng-dirty ng-valid']")
+	//@FindBy(css = "mat-select[class='mat-select ng-tns-c225-10 ng-tns-c91-9 ng-star-inserted mat-select-required ng-touched ng-dirty ng-valid']")
+	@FindBy(xpath = "/html/body/div[3]/div[2]/div/mat-dialog-container/ng-component/section/mat-dialog-content/div/form/div/div[3]/div/div/div[1]/mat-form-field/div/div[1]/div[3]/mat-select")
 	WebElement RoleDropdown;
 
 	@FindBy(css = "input[formcontrolname='numOfAssessments']")
 	WebElement NumberOfAssField;
+	
+
+	@FindBy(id = "mat-input-5")
+	WebElement NumberOfAssFieldInForm;
+	
+	
+	//@FindBy(className = "ng-pristine ng-invalid ng-touched")
+	@FindBy(xpath = "//*[@id=\"mat-dialog-0\"]/ng-component/section/mat-dialog-content/div/form/div/div[4]/div/div/div[2]/div/div[2]/app-scope-input-form/form")
+	WebElement Frame;
 
 	@FindBy(css = "input[formcontrolname='numOfYears']")
 	WebElement NumberOfYearsField;
@@ -69,10 +84,15 @@ public class MyAssessmentExperienceRequestsPage extends PageBase {
 	
 	@FindBy(css = "svg[class='mat-datepicker-toggle-default-icon ng-star-inserted']")
 	WebElement IconFromDate;
-	
-	//@FindBy(css = "td[aria-label='May 23, 2023']")
-	@FindBy(xpath = "document.querySelector(\"td[aria-label='May 16, 2023'] div[class='mat-calendar-body-cell-content']\")")
+
+	@FindBy(xpath = "//*[@id=\"mat-datepicker-0\"]/div/mat-month-view/table/tbody/tr[5]/td[4]/div")
 	WebElement FromDate;
+	
+	@FindBy(xpath = "//*[@id=\"content\"]/app-assessments-experience-requests/div/div[1]/div[4]/div/div[2]/mat-form-field/div/div[1]/div[4]/mat-datepicker-toggle/button")
+	WebElement IconToDate;
+	
+	@FindBy(xpath = "//*[@id=\"mat-datepicker-1\"]/div/mat-month-view/table/tbody/tr[6]/td[4]/div")
+	WebElement ToDate;
 	
 	@FindBy(css = "a[ng-reflect-message='View']")
 	WebElement ViewBtn;
@@ -80,9 +100,14 @@ public class MyAssessmentExperienceRequestsPage extends PageBase {
 	@FindBy(xpath = "/html[1]/body[1]/app-root[1]/app-admin-layout[1]/div[1]/div[1]/div[1]/div[1]/div[1]/app-assessments-experience-requests[1]/nav[1]/div[1]/h2[1]")
 	public WebElement HeaderText;
 	
-	
 	@FindBy(xpath = "/html/body/app-root/app-admin-layout/div/div/div/div/div/app-assessments-experience-requests/div/div[2]/div[2]/mat-paginator/div/div/div[2]/button[2]")
 	WebElement NextPageBtn;
+	
+	@FindBy(id = "toast-container")
+	public WebElement Validation;
+	
+	@FindBy(xpath = "/html/body/app-root/app-admin-layout/div/div/div/div/div/app-assessments-experience-requests/div/div[2]/div[1]/table/tbody/tr[1]/td[2]/div")
+	public WebElement  WaitingAccreditationManagerDecisionStatus;
 	
 
 	public void AddNewAssessmentExpRequestForAllSchema(String NumberOfAssessment, String NumberOfYears)
@@ -97,7 +122,9 @@ public class MyAssessmentExperienceRequestsPage extends PageBase {
 //		} catch (org.openqa.selenium.NoSuchElementException e) {
 //			System.out.println("Profile is Not Completed");
 //		}
-		clickButton(AddNewAssessmentExperienceBtn);
+		clickButton(AddNewAssessmentExperienceBtnInMiddleScreen);
+		Thread.sleep(2000);
+		setTextElementText(SelectSchemaDropdown, "Testing Labs");
 		Thread.sleep(2000);
 		clickButton(ForAllSchemaToggleBtn);
 		Thread.sleep(2000);
@@ -105,17 +132,20 @@ public class MyAssessmentExperienceRequestsPage extends PageBase {
 		setTextElementText(NumberOfAssField, NumberOfAssessment);
 		setTextElementText(NumberOfYearsField, NumberOfYears);
 		clickButton(CheckBox);
-		Thread.sleep(3000);
+		clickButton(SubmitBtn);
+		Thread.sleep(6000);
 	}
 
-	public void AddNewAssessmentExpReqForSpecificScope() throws InterruptedException {
+	public void AddNewAssessmentExpReqForSpecificScope(String NumberOfAssessment, String NumberOfYears) throws InterruptedException {
 		clickButton(MyAssessmentExpeRequestsLink);
 		clickButton(AddNewAssessmentExperienceBtn);
 		setTextElementText(SelectSchemaDropdown, "Testing Labs");
 		Thread.sleep(2000);
-		clickButton(SelectScopeIcon);
-		Thread.sleep(2000);
-		clickButton(TestingDropDownIcon);
+		//clickButton(SelectScopeIcon);
+		//Thread.sleep(2000);
+		//clickButton(TestingDropDownIcon);
+		//setTextElementText(NumberOfAssFieldInForm, NumberOfAssessment);
+		setTextElementText(NumberOfYearsField, NumberOfYears);
 		Thread.sleep(2000);
 	}
 
@@ -129,9 +159,8 @@ public class MyAssessmentExperienceRequestsPage extends PageBase {
 		clickButton(MyAssessmentExpeRequestsLink);
 		clickButton(AddNewAssessmentExperienceBtn);
 		Thread.sleep(2000);
-		// clickButton(ForAllSchemaToggleBtn);
-		// setTextElementText(SelectSchemaDropdown, "Testing Labs");
-		setTextElementText(NumberOfAssField, NumberOfAssessment);
+		setTextElementText(SelectSchemaDropdown, "Testing Labs");
+		setTextElementText(NumberOfAssFieldInForm, NumberOfAssessment);
 		setTextElementText(NumberOfYearsField, NumberOfYears);
 		clickButton(ClearBtn);
 	}
@@ -153,13 +182,16 @@ public class MyAssessmentExperienceRequestsPage extends PageBase {
 		setTextElementText(SearchFoucs, Assessment);
 	}
 	
-	public void FilterBy() throws InterruptedException
-	{
+	public void FilterBy() throws InterruptedException {
 		clickButton(MyAssessmentExpeRequestsLink);
 		clickButton(FilterByDropDown);
 		clickButton(IconFromDate);
-		setTextElementText(FromDate,"5/30/2023");
-		//clickButton(FromDate);
+		Thread.sleep(2000);
+		clickButton(FromDate);
+		Thread.sleep(2000);
+		clickButton(IconToDate);
+		Thread.sleep(1000);
+		clickButton(ToDate);
 		Thread.sleep(3000);
 	}
 	

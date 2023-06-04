@@ -24,11 +24,4 @@ public class AssessmentsMembersPage extends PageBase {
 		clickButton(AssessmentsMembersLink);
 		clickButton(ViewBtn);
 	}
-	
-	
-	
-	
-	
-	
-
 }
