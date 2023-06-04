@@ -14,7 +14,7 @@ public class CVPageTest extends TestBase {
 	LoginPage LoginPageObj;
 	CVPage CVPageObj;
 
-	String Email = "Eiacstaffuser@mailinator.com";
+	String Email = "Eiacstaffuser1@mailinator.com";
 	String Password = "Akram@1234";
 
 	@Test(priority = 1)

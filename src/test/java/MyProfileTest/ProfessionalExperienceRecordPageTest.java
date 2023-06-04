@@ -12,7 +12,7 @@ public class ProfessionalExperienceRecordPageTest extends TestBase {
 	LoginPage LoginPageObj;
 	ProfessionalExperienceRecordPage ProfessionalExperienceRecordPageObj;
 
-	String Email = "Eiacstaffuser@mailinator.com";
+	String Email = "Eiacstaffuser1@mailinator.com";
 	String Password = "Akram@1234";
 
 	Faker fakeData = new Faker();
@@ -30,8 +30,8 @@ public class ProfessionalExperienceRecordPageTest extends TestBase {
 	@Test(priority = 2)
 	public void AddNewPresentPositionSuccessfully() throws InterruptedException {
 		ProfessionalExperienceRecordPageObj = new ProfessionalExperienceRecordPage(driver);
-		ProfessionalExperienceRecordPageObj.AddPresentPosition(JobTitle, Company, DutiesAndResponsibilities);
-		Assert.assertTrue(ProfessionalExperienceRecordPageObj.Validation.getText().contains("Added successfully"));
+		ProfessionalExperienceRecordPageObj.AddProfessionalExperienceRecord(JobTitle, Company, DutiesAndResponsibilities);
+		Assert.assertTrue(ProfessionalExperienceRecordPageObj.Validation.getText().contains("Successfully Added"));
 	}
 
 }

@@ -16,7 +16,7 @@ public class TrainingPageTest extends TestBase {
 	LoginPage LoginPageObj;
 	TrainingPage TrainingPageObj;
 
-	String Email = "Eiacstaffuser@mailinator.com";
+	String Email = "Eiacstaffuser1@mailinator.com";
 	String Password = "Akram@1234";
 	
 	Faker fakeData = new Faker();

@@ -12,7 +12,7 @@ public class AddNewAssessmentExpSuccessfullyForSpecificScopes extends TestBase {
 	LoginPage LoginPageObj;
 	MyAssessmentExperienceRequestsPage AssessmentExperienceRequestsPageObj;
 	
-	String Email = "Eiacstaffuser@mailinator.com";
+	String Email = "Eiacstaffuser1@mailinator.com";
 	String Password = "Akram@1234";
 
 	String NumberOfAssessment = "5";
@@ -27,7 +27,6 @@ public class AddNewAssessmentExpSuccessfullyForSpecificScopes extends TestBase {
 	public void AddNewAssessmentForSpecificScope() throws InterruptedException
 	{
 		AssessmentExperienceRequestsPageObj = new MyAssessmentExperienceRequestsPage(driver);
-		AssessmentExperienceRequestsPageObj.AddNewAssessmentExpReqForSpecificScope();
+		AssessmentExperienceRequestsPageObj.AddNewAssessmentExpReqForSpecificScope(NumberOfAssessment, NumberOfYears);
 	}
-
 }

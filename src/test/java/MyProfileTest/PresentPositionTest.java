@@ -14,7 +14,7 @@ public class PresentPositionTest extends TestBase {
 	LoginPage LoginPageObj;
 	PresentPositionPage PresentPositionPageObj;
 	
-	String Email ="Eiacstaffuser@mailinator.com";
+	String Email ="Eiacstaffuser1@mailinator.com";
 	String Password ="Akram@1234";
 	
 	Faker fakeData = new Faker();

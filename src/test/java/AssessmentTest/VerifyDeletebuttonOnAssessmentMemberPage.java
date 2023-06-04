@@ -1,10 +1,10 @@
 package AssessmentTest;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import Assessment.AssessmentsMembersPage;
 import Assessment.MyAssessmentExperiencePage;
-import MyProfile.AssessmentExperiencePage;
 import userManagement.TestBase;
 import userManagementPages.LoginPage;
 
@@ -38,6 +38,8 @@ public class VerifyDeletebuttonOnAssessmentMemberPage extends TestBase {
 		driver.navigate().to("https://eiac.mosandah.com.sa/admin/UserManagement/MyProfile/jkk9hgECemLVsSrBYjzvYbBFO5l0u89OK4KdhlPP?tab=8");
 		Thread.sleep(2000);
 		MyAssessmentExperiencePageObj.DeleteUserInAssessmentExperience();
+		Thread.sleep(5000);
+		Assert.assertTrue(MyAssessmentExperiencePageObj.DeleteValidation.getText().contains(" delete successfuly "));
 	}
 	
 	

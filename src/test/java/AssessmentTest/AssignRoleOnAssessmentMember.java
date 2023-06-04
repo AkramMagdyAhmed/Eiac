@@ -1,5 +1,6 @@
 package AssessmentTest;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import Assessment.AssessmentsMembersPage;
@@ -24,18 +25,22 @@ public class AssignRoleOnAssessmentMember extends TestBase {
 		LoginPageObj.UserCanLogin(Email, Password);
 		Thread.sleep(2000);
 	}
-
+ 
 	@Test(priority = 2, enabled = false)
 	public void ViewMemberSuccessfully() {
 		
 		AssessmentsMembersPageObj = new AssessmentsMembersPage(driver);
 		AssessmentsMembersPageObj.ViewMember();	
 	}
-	@Test(priority = 3, enabled = false)
-	public void AssignRoleSuccessfully()
+	@Test(priority = 3, enabled = true)
+	public void AssignRoleSuccessfully() throws InterruptedException
 	{
+		driver.navigate().to("https://eiac.mosandah.com.sa/admin/UserManagement/MyProfile/jkk9hgECemLVsSrBYjzvYbBFO5l0u89OK4KdhlPP?tab=8");
+		Thread.sleep(1000);
 		MyAssessmentExperiencePageObj = new MyAssessmentExperiencePage(driver);
 		MyAssessmentExperiencePageObj.AssignRole();
+		Assert.assertTrue(MyAssessmentExperiencePageObj.AddValidation.getText().contains("Successfully Added"));                                  
+		Thread.sleep(2000);
 	}
 	
 	

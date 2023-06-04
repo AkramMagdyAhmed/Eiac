@@ -1,5 +1,6 @@
 package AssessmentTest;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import Assessment.MyAssessmentExperienceRequestsPage;
@@ -11,7 +12,7 @@ public class AddNewAssessmentExpSuccessfullyForAllSchema extends TestBase {
 	LoginPage LoginPageObj;
 	MyAssessmentExperienceRequestsPage AssessmentExperienceRequestsPageObj;
 
-	String Email = "Eiacstaffuser@mailinator.com";
+	String Email = "Eiacstaffuser1@mailinator.com";
 	String Password = "Akram@1234";
 
 	String NumberOfAssessment = "5";
@@ -27,6 +28,7 @@ public class AddNewAssessmentExpSuccessfullyForAllSchema extends TestBase {
 	public void AddNewAssessmentExpRequestSuccessfully() throws InterruptedException {
 		AssessmentExperienceRequestsPageObj = new MyAssessmentExperienceRequestsPage(driver);
 		AssessmentExperienceRequestsPageObj.AddNewAssessmentExpRequestForAllSchema(NumberOfAssessment, NumberOfYears);
+		Assert.assertTrue(AssessmentExperienceRequestsPageObj.Validation.getText().contains("Added successfully"));
 	}
 
 }

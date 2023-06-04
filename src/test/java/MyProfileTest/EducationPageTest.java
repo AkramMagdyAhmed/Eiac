@@ -13,7 +13,7 @@ public class EducationPageTest extends TestBase {
 	LoginPage LoginPageObj;
 	EducationPage EducationPageObj;
 	
-	String Email = "Eiacstaffuser@mailinator.com";
+	String Email = "Eiacstaffuser1@mailinator.com";
 	String Password = "Akram@1234";
 	
 	
@@ -32,7 +32,7 @@ public class EducationPageTest extends TestBase {
 	{
 		EducationPageObj = new EducationPage(driver);
 		EducationPageObj.AddEducation(Institute, major);
-		driver.close();
+		//driver.close();
 	}
 
 }

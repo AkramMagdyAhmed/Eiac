@@ -31,5 +31,6 @@ public class AddNewAssessmentBtnIsNotDisplayedWhileProfileIsNotComplete extends 
 		AssessmentExperienceRequestsPageObj = new MyAssessmentExperienceRequestsPage(driver);
 		AssessmentExperienceRequestsPageObj.ProfileNotCompleted();
 		Assert.assertTrue(AssessmentExperienceRequestsPageObj.CompleteYourProfileText.getText().contains("It seems like you didn't complete your profile yet"));
+		Assert.assertTrue(AssessmentExperienceRequestsPageObj.CompleteYourProfileText.getText().contains("It seems like you didn't complete your profile yet"));
 	}
 }

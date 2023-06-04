@@ -21,7 +21,7 @@ public class ViewAssessmentInAllAssessmentExpReq extends TestBase{
 		LoginPageObj.UserCanLogin(Email, Password);
 	}
 	
-	@Test(priority = 1)
+	@Test(priority = 2)
 	public void ViewAssessmentSuccessfully() throws InterruptedException
 	{
 		AllAssessmentExperienceRequestsPageObj = new AllAssessmentExperienceRequestsPage(driver);
